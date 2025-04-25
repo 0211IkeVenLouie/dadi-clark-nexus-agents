@@ -1,11 +1,54 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import { Link } from "react-router-dom";
+import { Building, Book, Users, FileText } from "lucide-react";
 
 const Index = () => {
+  const departments = [
+    {
+      name: "Business Development & Operations",
+      icon: <Building className="h-8 w-8" />,
+      description: "Strategic growth and operational excellence",
+      path: "/business",
+    },
+    {
+      name: "Dadi Academy",
+      icon: <Book className="h-8 w-8" />,
+      description: "Education and skill development programs",
+      path: "/academy",
+    },
+    {
+      name: "Administrative Logistics & Web AI",
+      icon: <FileText className="h-8 w-8" />,
+      description: "Administrative operations and AI solutions",
+      path: "/admin",
+    },
+    {
+      name: "Common Support",
+      icon: <Users className="h-8 w-8" />,
+      description: "Essential assistance and resources",
+      path: "/support",
+    },
+  ];
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
+    <div className="p-8">
+      <h1 className="text-4xl font-bold text-gray-900 mb-2">Dadi Clark - AI Agents</h1>
+      <p className="text-lg text-gray-600 mb-8">Empowering the future with intelligent solutions</p>
+      
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {departments.map((dept) => (
+          <Link
+            key={dept.path}
+            to={dept.path}
+            className="block bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow"
+          >
+            <div className="flex items-center gap-4 mb-4">
+              <div className="text-primary">{dept.icon}</div>
+              <h2 className="text-xl font-semibold text-gray-900">{dept.name}</h2>
+            </div>
+            <p className="text-gray-600">{dept.description}</p>
+          </Link>
+        ))}
       </div>
     </div>
   );
