@@ -38,7 +38,7 @@ const Admin = () => {
         >
           <CardHeader className="flex flex-row items-center gap-4">
             <img
-              src="/lovable-uploads/agent1-logo.png"
+              src="/lovable-uploads/8396e346-a650-4c23-8183-77878816d11b.png"
               alt="Admin Agent 1"
               className="h-12"
             />
@@ -65,7 +65,7 @@ const Admin = () => {
         >
           <CardHeader className="flex flex-row items-center gap-4">
             <img
-              src="/lovable-uploads/agent2-logo.png"
+              src="/lovable-uploads/8396e346-a650-4c23-8183-77878816d11b.png"
               alt="Admin Agent 2"
               className="h-12"
             />
