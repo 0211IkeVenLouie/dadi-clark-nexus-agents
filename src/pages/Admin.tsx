@@ -75,7 +75,7 @@ const Admin = () => {
       ) : (
         <div className="rounded-lg overflow-hidden shadow-md" style={{ minHeight: '700px' }}>
           <iframe
-            src="https://udify.app/chat/YEsPYzzdX3UARKKZ"
+            src="https://udify.app/chat/JWets0y7TUwmYrsn"
             style={{ width: '100%', height: '100%', minHeight: '700px' }}
             frameBorder="0"
             allow="microphone"
