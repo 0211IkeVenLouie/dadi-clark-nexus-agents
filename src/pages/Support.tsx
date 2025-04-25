@@ -34,7 +34,7 @@ const Support = () => {
               alt="Dadi Coach"
               className="h-12"
             />
-            <CardTitle>Generate Daily / Weekly / Monthly Task Lists</CardTitle>
+            <CardTitle>AI Dadi Analyst</CardTitle>
           </CardHeader>
         </Card>
       ) : (
@@ -61,7 +61,7 @@ const Support = () => {
               alt="Dadi Coach"
               className="h-12"
             />
-            <CardTitle>AI Data Analyst</CardTitle>
+            <CardTitle>Generate Daily / Weekly / Monthly Task Lists</CardTitle>
           </CardHeader>
         </Card>
       ) : (
