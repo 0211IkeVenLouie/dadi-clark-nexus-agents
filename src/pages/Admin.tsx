@@ -42,7 +42,7 @@ const Admin = () => {
               alt="Admin Agent 1"
               className="h-12"
             />
-            <CardTitle>Administrative Workflow Optimizer</CardTitle>
+            <CardTitle>AI Interview Screening</CardTitle>
           </CardHeader>
         </Card>
       ) : (
@@ -69,7 +69,7 @@ const Admin = () => {
               alt="Admin Agent 2"
               className="h-12"
             />
-            <CardTitle>Web AI Integration Assistant</CardTitle>
+            <CardTitle>AI-Assisted Job Description</CardTitle>
           </CardHeader>
         </Card>
       ) : (
