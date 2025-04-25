@@ -1,6 +1,7 @@
 
 import { Link } from "react-router-dom";
 import { Building, Book, Users, FileText } from "lucide-react";
+import Logo from "./Logo";
 
 const Sidebar = () => {
   const departments = [
