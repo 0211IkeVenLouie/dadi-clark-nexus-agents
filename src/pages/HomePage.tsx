@@ -94,10 +94,8 @@ const HomePage = () => {
                 </NavigationMenuContent>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <Link to="/dashboard" legacyBehavior passHref>
-                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                    Dashboard
-                  </NavigationMenuLink>
+                <Link to="/dashboard" className={navigationMenuTriggerStyle()}>
+                  Dashboard
                 </Link>
               </NavigationMenuItem>
             </NavigationMenuList>
