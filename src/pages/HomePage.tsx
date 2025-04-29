@@ -61,7 +61,7 @@ const HomePage = () => {
               <img
                 src="/lovable-uploads/28bd9d67-77ab-4ca8-a950-5a23d2a3bc6b.png"
                 alt="Dadi Clark Logo"
-                className="h-48 md:h-64"
+                className="h-24 md:h-32"
               />
             </div>
           </div>
