@@ -31,7 +31,7 @@ const Business = () => {
       </div>
 
       {/* Agent 1*/}
-      {!showAgent ? (
+      {!showAgent1 ? (
         <Card 
           className="cursor-pointer hover:shadow-lg transition-all mb-6 border border-gray-100 transform hover:-translate-y-1"
           onClick={() => setShowAgent1(true)}
@@ -69,7 +69,7 @@ const Business = () => {
       )}
 
       {/* Agent 2*/}
-      {!showAgent ? (
+      {!showAgent2 ? (
         <Card 
           className="cursor-pointer hover:shadow-lg transition-all mb-6 border border-gray-100 transform hover:-translate-y-1"
           onClick={() => setShowAgent2(true)}
