@@ -11,6 +11,7 @@ import Academy from "./pages/Academy";
 import Admin from "./pages/Admin";
 import Support from "./pages/Support";
 import NotFound from "./pages/NotFound";
+import HomePage from "./pages/HomePage";
 
 const queryClient = new QueryClient();
 
@@ -24,7 +25,8 @@ const App = () => (
           <Sidebar />
           <div className="ml-64 flex-1 transition-all">
             <Routes>
-              <Route path="/" element={<Index />} />
+              <Route path="/" element={<HomePage />} />
+              <Route path="/dashboard" element={<Index />} />
               <Route path="/business" element={<Business />} />
               <Route path="/academy" element={<Academy />} />
               <Route path="/admin" element={<Admin />} />
