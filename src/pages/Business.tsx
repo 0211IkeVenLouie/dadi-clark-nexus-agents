@@ -43,7 +43,7 @@ const Business = () => {
             <img
               src="/lovable-uploads/8396e346-a650-4c23-8183-77878816d11b.png"
               alt="Dadi Coach"
-              className="h-8" // Changed from h-12 to h-8 to make it smaller
+              className="h-12" 
             />
             <CardTitle>Discover Campus Partnership Leads</CardTitle>
           </CardHeader>
