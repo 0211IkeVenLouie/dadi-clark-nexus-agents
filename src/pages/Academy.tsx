@@ -1,5 +1,9 @@
 
 const Academy = () => {
+
+  const Business = () => {
+  const [showAgent, setShowAgent] = useState(false);
+    
   return (
     <div className="p-8">
       <h1 className="text-3xl font-bold text-gray-900 mb-6">
