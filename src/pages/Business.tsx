@@ -26,6 +26,15 @@ const Business = () => {
         </Link>
       </div>
 
+      <div className="bg-white rounded-lg shadow-md p-6">
+        <h2 className="text-xl font-semibold text-primary mb-4">Overview</h2>
+        <p className="text-gray-600">
+          The Business and Development refers to the combined activities of creating, growing, and managing 
+          an organization with the goal of achieving sustainable success.
+        </p>
+      </div>
+    </div>
+
       {!showAgent ? (
         <Card 
           className="cursor-pointer hover:shadow-lg transition-shadow"
