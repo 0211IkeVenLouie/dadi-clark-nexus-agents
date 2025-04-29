@@ -23,6 +23,15 @@ const Support = () => {
         </Link>
       </div>
 
+      <div className="bg-white rounded-lg shadow-md p-6">
+        <h2 className="text-xl font-semibold text-primary mb-4">Overview</h2>
+        <p className="text-gray-600">
+          The Common Support Block refers to the essential services and systems that 
+          support core business operations across departments.
+        </p>
+      </div>
+    </div>
+
       {/* Agent 1 */}
       {!showAgent1 ? (
         <Card 
