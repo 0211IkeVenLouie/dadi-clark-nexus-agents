@@ -38,7 +38,7 @@ const Academy = () => {
           <CardHeader className="flex flex-row items-center gap-4">
             <div className="bg-primary/10 p-2 rounded-full">
               <img
-                src="/lovable-uploads/your-image-id.png"
+                src="/lovable-uploads/8396e346-a650-4c23-8183-77878816d11b.png"
                 alt="Academy Agent"
                 className="h-12"
               />
