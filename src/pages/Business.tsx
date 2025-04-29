@@ -34,28 +34,40 @@ const Business = () => {
         </p>
       </div>
 
-      {!showAgent ? (
+      {/* Agent 1 */}
+      {!showAgent1 ? (
         <Card 
-          className="cursor-pointer hover:shadow-lg transition-shadow"
-          onClick={handleCardClick}
+          className="cursor-pointer hover:shadow-lg transition-all mb-6 border border-gray-100 transform hover:-translate-y-1"
+          onClick={() => setShowAgent(true)}
         >
           <CardHeader className="flex flex-row items-center gap-4">
-            <img
-              src="/lovable-uploads/8396e346-a650-4c23-8183-77878816d11b.png"
-              alt="Dadi Coach"
-              className="h-12" 
-            />
-            <CardTitle>Discover Campus Partnership Leads</CardTitle>
+            <div className="bg-primary/10 p-2 rounded-full">
+              <img
+                src="/lovable-uploads/8396e346-a650-4c23-8183-77878816d11b.png"
+                alt="Admin Agent 1"
+                className="h-12"
+              />
+            </div>
+            <CardTitle className="text-gray-800">AI Interview Screening</CardTitle>
           </CardHeader>
         </Card>
       ) : (
-        <div className="rounded-lg overflow-hidden shadow-md" style={{ minHeight: '700px' }}>
+        <div className="rounded-lg overflow-hidden shadow-md mb-6 border border-gray-200" style={{ minHeight: '700px' }}>
+          <div className="bg-primary/10 p-3 flex justify-between items-center">
+            <h3 className="font-medium text-gray-800">Discover Campus Partnership Leads</h3>
+            <button 
+              onClick={() => setShowAgent(false)}
+              className="text-gray-600 hover:text-primary"
+            >
+              Close
+            </button>
+          </div>
           <iframe
             src="https://udify.app/chat/m75K1BaMwITSJQ7i"
             style={{ width: '100%', height: '100%', minHeight: '700px' }}
             frameBorder="0"
             allow="microphone"
-            title="Discover Campus Partnership Leads"
+            title="Administrative Workflow Optimizer"
           />
         </div>
       )}
