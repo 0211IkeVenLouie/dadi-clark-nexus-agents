@@ -82,13 +82,13 @@ const Business = () => {
                 className="h-12"
               />
             </div>
-            <CardTitle className="text-gray-800">Internal AI-Chatbot (Dadi Franchsie Business)</CardTitle>
+            <CardTitle className="text-gray-800">Internal AI-Chatbot (Dadi Franchise Business)</CardTitle>
           </CardHeader>
         </Card>
       ) : (
         <div className="rounded-lg overflow-hidden shadow-md mb-6 border border-gray-200" style={{ minHeight: '700px' }}>
           <div className="bg-primary/10 p-3 flex justify-between items-center">
-            <h3 className="font-medium text-gray-800">Internal AI-Chatbot (Dadi Franchsie Business)</h3>
+            <h3 className="font-medium text-gray-800">Internal AI-Chatbot (Dadi Franchise Business)</h3>
             <button 
               onClick={() => setShowAgent2(false)}
               className="text-gray-600 hover:text-primary"
