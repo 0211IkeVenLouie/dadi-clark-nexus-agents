@@ -59,7 +59,7 @@ const Business = () => {
             </button>
           </div>
           <iframe
-            src="https://udify.app/chat/m75K1BaMwITSJQ7i"
+            src="http://dify.dadicoach.com/chat/m75K1BaMwITSJQ7i"
             style={{ width: '100%', height: '100%', minHeight: '700px' }}
             frameBorder="0"
             allow="microphone"
@@ -97,15 +97,26 @@ const Business = () => {
             </button>
           </div>
           <iframe
-            src="https://udify.app/chatbot/d8Q4atqOvJ4sysoP"
+            src="http://dify.dadicoach.com/chatbot/d8Q4atqOvJ4sysoP"
             style={{ width: '100%', height: '100%', minHeight: '700px' }}
             frameBorder="0"
             allow="microphone"
-            title="Discover Campus Partnership Leads"
+            title="Internal AI-Chatbot (Dadi Franchise Business)"
           />
         </div>
       )}
 
+       {/* Unsecured Link - For Testing ONLY */}
+       <div className="mt-8 rounded-lg overflow-hidden shadow-md mb-6 border border-gray-200" style={{ minHeight: '700px' }}>
+          <h3 className="font-medium text-gray-800 p-3">Unsecured Link (For Testing)</h3>
+          <iframe
+            src="http://dify.dadicoach.com/chatbot/gpLJt7BI8VN1xb01"
+            style={{ width: '100%', height: '100%', minHeight: '700px' }}
+            frameBorder="0"
+            allow="microphone"
+            title="Unsecured Chatbot"
+          />
+        </div>
       
     </div>
   );
