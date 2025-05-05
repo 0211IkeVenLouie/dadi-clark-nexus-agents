@@ -1,13 +1,30 @@
 
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Home } from "lucide-react";
+import { Home, RefreshCcw } from "lucide-react";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 const Business = () => {
   const [showAgent1, setShowAgent1] = useState(false);
   const [showAgent2, setShowAgent2] = useState(false);
   const [showAgent3, setShowAgent3] = useState(false);
+  const [iframeLoaded, setIframeLoaded] = useState(false);
+
+  // Reset iframe loaded state when closing any agent
+  useEffect(() => {
+    if (!showAgent1 && !showAgent2 && !showAgent3) {
+      setIframeLoaded(false);
+    }
+  }, [showAgent1, showAgent2, showAgent3]);
+
+  const handleIframeLoad = () => {
+    setIframeLoaded(true);
+  };
+
+  const handleIframeError = () => {
+    setIframeLoaded(false);
+  };
 
   return (
     <div className="p-8 bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
@@ -103,12 +120,12 @@ const Business = () => {
             style={{ width: '100%', height: '100%', minHeight: '700px' }}
             frameBorder="0"
             allow="microphone"
-            title="Discover Campus Partnership Leads"
+            title="Internal AI-Chatbot (Dadi Franchise Business)"
           />
         </div>
       )}
 
-      {/* Agent 3 - Newly added Dify iframe */}
+      {/* Agent 3 - Dify chatbot with improved error handling */}
       {!showAgent3 ? (
         <Card 
           className="cursor-pointer hover:shadow-lg transition-all mb-6 border border-gray-100 transform hover:-translate-y-1"
@@ -129,20 +146,66 @@ const Business = () => {
         <div className="rounded-lg overflow-hidden shadow-md mb-6 border border-gray-200" style={{ minHeight: '700px' }}>
           <div className="bg-primary/10 p-3 flex justify-between items-center">
             <h3 className="font-medium text-gray-800">Dadi Business Chatbot</h3>
-            <button 
-              onClick={() => setShowAgent3(false)}
-              className="text-gray-600 hover:text-primary"
-            >
-              Close
-            </button>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => {
+                  setIframeLoaded(false);
+                  setTimeout(() => setIframeLoaded(true), 100);
+                }}
+                className="text-gray-600 hover:text-primary flex items-center gap-1"
+              >
+                <RefreshCcw className="h-4 w-4" />
+                <span>Reload</span>
+              </button>
+              <button 
+                onClick={() => setShowAgent3(false)}
+                className="text-gray-600 hover:text-primary ml-2"
+              >
+                Close
+              </button>
+            </div>
           </div>
-          <iframe
-            src="https://dify.dadicoach.com/chatbot/gpLJt7BI8VN1xb01"
-            style={{ width: '100%', height: '100%', minHeight: '700px' }}
-            frameBorder="0"
-            allow="microphone"
-            title="Dadi Business Chatbot"
-          />
+          <div className="relative" style={{ minHeight: '700px' }}>
+            <iframe
+              src="https://dify.dadicoach.com/chatbot/gpLJt7BI8VN1xb01"
+              style={{ 
+                width: '100%', 
+                height: '100%', 
+                minHeight: '700px',
+                display: iframeLoaded ? 'block' : 'none'
+              }}
+              frameBorder="0"
+              allow="microphone"
+              title="Dadi Business Chatbot"
+              onLoad={handleIframeLoad}
+              onError={handleIframeError}
+            />
+            
+            {!iframeLoaded && (
+              <div 
+                className="absolute inset-0 bg-gray-50 flex flex-col items-center justify-center text-gray-500"
+                style={{ minHeight: '700px' }}
+              >
+                <div className="mb-4 animate-pulse">
+                  <svg className="w-16 h-16 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                  </svg>
+                </div>
+                <p className="text-center font-medium">Connection to chatbot failed</p>
+                <p className="text-sm text-center mt-2 max-w-md">The connection to dify.dadicoach.com could not be established. Please check your network connection and try again.</p>
+                <button 
+                  onClick={() => {
+                    setIframeLoaded(false);
+                    setTimeout(() => setIframeLoaded(true), 500);
+                  }}
+                  className="mt-4 px-4 py-2 bg-primary text-white rounded-md flex items-center gap-2 hover:bg-primary/90 transition-colors"
+                >
+                  <RefreshCcw className="w-4 h-4" />
+                  <span>Try Again</span>
+                </button>
+              </div>
+            )}
+          </div>
         </div>
       )}
     </div>
