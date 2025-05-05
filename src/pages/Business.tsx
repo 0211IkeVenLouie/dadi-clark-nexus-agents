@@ -96,14 +96,13 @@ const Business = () => {
               Close
             </button>
           </div>
-<iframe
-  src={`/api/proxy?url=${encodeURIComponent('http://dify.dadicoach.com/chatbot/gpLJt7BI8VN1xb01')}`}
-  style={{ width: '100%', height: '100%', minHeight: '700px' }}
-  frameBorder="0"
-  allow="microphone"
-  title="Dify Chatbot"
-/>
-
+          <iframe
+            src="https://udify.app/chatbot/d8Q4atqOvJ4sysoP"
+            style={{ width: '100%', height: '100%', minHeight: '700px' }}
+            frameBorder="0"
+            allow="microphone"
+            title="Discover Campus Partnership Leads"
+          />
         </div>
       )}
 
