@@ -1,9 +1,10 @@
+
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Home } from "lucide-react";
 
-const Admin = () => {
+const Academy = () => {
   const [showAgent1, setShowAgent1] = useState(false);
   const [showAgent2, setShowAgent2] = useState(false);
 
