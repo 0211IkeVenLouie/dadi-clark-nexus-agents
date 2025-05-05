@@ -137,7 +137,7 @@ const Business = () => {
             </button>
           </div>
           <iframe
-            src="http://dify.dadicoach.com/chatbot/gpLJt7BI8VN1xb01"
+            src="https://dify.dadicoach.com/chatbot/gpLJt7BI8VN1xb01"
             style={{ width: '100%', height: '100%', minHeight: '700px' }}
             frameBorder="0"
             allow="microphone"
