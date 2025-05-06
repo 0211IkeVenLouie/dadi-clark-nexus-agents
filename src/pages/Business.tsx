@@ -1,4 +1,3 @@
-
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
@@ -113,24 +112,19 @@ const Business = () => {
                   className="h-12"
                 />
               </div>
-              <CardTitle className="text-gray-800">External Dify Chatbot</CardTitle>
+              <div>
+                <CardTitle className="text-gray-800">External Dify Chatbot</CardTitle>
+                <p className="text-gray-600 mt-1">You can test chatbot by clicking here.</p>
+              </div>
             </div>
-            <div className="flex gap-2">
-              <Button 
-                onClick={handleExternalLinkClick}
-                className="bg-primary text-white hover:bg-primary/90"
-              >
-                Click here to open chatbot
-              </Button>
-              <Button 
-                onClick={() => openInNewTab(CHATBOT_URL)}
-                variant="outline"
-                className="flex items-center gap-1"
-              >
-                <ExternalLink className="h-4 w-4" />
-                Open in new tab
-              </Button>
-            </div>
+            <Button 
+              onClick={() => openInNewTab(CHATBOT_URL)}
+              variant="outline"
+              className="flex items-center gap-1"
+            >
+              <ExternalLink className="h-4 w-4" />
+              Open in new tab
+            </Button>
           </CardHeader>
         </Card>
       )}
