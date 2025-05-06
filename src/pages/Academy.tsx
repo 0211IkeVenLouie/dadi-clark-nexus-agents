@@ -45,13 +45,13 @@ const Academy = () => {
                 className="h-12"
               />
             </div>
-            <CardTitle className="text-gray-800">AI Interview Screening</CardTitle>
+            <CardTitle className="text-gray-800">AI Agent Soon</CardTitle>
           </CardHeader>
         </Card>
       ) : (
         <div className="rounded-lg overflow-hidden shadow-md mb-6 border border-gray-200" style={{ minHeight: '700px' }}>
           <div className="bg-primary/10 p-3 flex justify-between items-center">
-            <h3 className="font-medium text-gray-800">AI Interview Screening</h3>
+            <h3 className="font-medium text-gray-800">AI Agent Soon</h3>
             <button 
               onClick={() => setShowAgent1(false)}
               className="text-gray-600 hover:text-primary"
@@ -60,7 +60,7 @@ const Academy = () => {
             </button>
           </div>
           <iframe
-            src="https://udify.app/chat/hJEOBTD1sVNlsNuo"
+            src=""
             style={{ width: '100%', height: '100%', minHeight: '700px' }}
             frameBorder="0"
             allow="microphone"
@@ -70,7 +70,7 @@ const Academy = () => {
       )}
 
       {/* Agent 2 */}
-      {!showAgent2 ? (
+{/*       {!showAgent2 ? (
         <Card 
           className="cursor-pointer hover:shadow-lg transition-all border border-gray-100 transform hover:-translate-y-1"
           onClick={() => setShowAgent2(true)}
@@ -83,13 +83,13 @@ const Academy = () => {
                 className="h-12"
               />
             </div>
-            <CardTitle className="text-gray-800">AI-Assisted Job Description</CardTitle>
+            <CardTitle className="text-gray-800">AI Agent Soon</CardTitle>
           </CardHeader>
         </Card>
       ) : (
         <div className="rounded-lg overflow-hidden shadow-md border border-gray-200" style={{ minHeight: '700px' }}>
           <div className="bg-primary/10 p-3 flex justify-between items-center">
-            <h3 className="font-medium text-gray-800">AI-Assisted Job Description</h3>
+            <h3 className="font-medium text-gray-800">AI Agent Soon</h3>
             <button 
               onClick={() => setShowAgent2(false)}
               className="text-gray-600 hover:text-primary"
@@ -105,7 +105,8 @@ const Academy = () => {
             title="Web AI Integration Assistant"
           />
         </div>
-      )}
+      )} */}
+      
     </div>
   );
 };
