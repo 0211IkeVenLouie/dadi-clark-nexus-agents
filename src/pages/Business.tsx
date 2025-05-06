@@ -133,7 +133,7 @@ const Business = () => {
       {showExternalAgent && (
         <div className="rounded-lg overflow-hidden shadow-md mb-6 border border-gray-200" style={{ minHeight: '700px' }}>
           <div className="bg-primary/10 p-3 flex justify-between items-center">
-            <h3 className="font-medium text-gray-800">External Dify Chatbot</h3>
+            <h3 className="font-medium text-gray-800"> Customer Service AI (Dadi ABCmouse 212 Program) </h3>
             <div className="flex items-center gap-2">
               <button 
                 onClick={() => openInNewTab(CHATBOT_URL)}
