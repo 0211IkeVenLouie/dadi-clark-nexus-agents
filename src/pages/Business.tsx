@@ -1,9 +1,11 @@
 
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Home, ExternalLink, RefreshCw } from "lucide-react";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import { Skeleton } from "@/components/ui/skeleton";
+import { useToast } from "@/hooks/use-toast";
 
 const Business = () => {
   const [showAgent1, setShowAgent1] = useState(false);
@@ -11,6 +13,7 @@ const Business = () => {
   const [showExternalAgent, setShowExternalAgent] = useState(false);
   const [iframeLoading, setIframeLoading] = useState(true);
   const [iframeError, setIframeError] = useState(false);
+  const { toast } = useToast();
 
   const handleIframeLoad = () => {
     setIframeLoading(false);
@@ -20,20 +23,45 @@ const Business = () => {
   const handleIframeError = () => {
     setIframeLoading(false);
     setIframeError(true);
+    toast({
+      title: "Chatbot Loading Error",
+      description: "The external chatbot couldn't be loaded. Please try opening it in a new tab or refreshing.",
+      variant: "destructive",
+    });
   };
 
   const openInNewTab = (url: string) => {
     window.open(url, '_blank', 'noopener,noreferrer');
   };
 
-  // Fixed function: Adding proper type casting for the iframe element
+  // When showing the external agent, set a timeout to auto-trigger error state
+  // if loading takes too long (helps prevent endless loading spinner)
+  useEffect(() => {
+    let timeoutId: number;
+    
+    if (showExternalAgent && iframeLoading) {
+      timeoutId = window.setTimeout(() => {
+        if (iframeLoading) {
+          handleIframeError();
+        }
+      }, 5000); // 5 seconds timeout
+    }
+    
+    return () => {
+      if (timeoutId) {
+        window.clearTimeout(timeoutId);
+      }
+    };
+  }, [showExternalAgent, iframeLoading]);
+
   const refreshIframe = () => {
     setIframeLoading(true);
     setIframeError(false);
     // Get the iframe and properly cast it to HTMLIFrameElement
     const iframe = document.getElementById('externalChatbot') as HTMLIFrameElement;
     if (iframe) {
-      iframe.src = "http://dify.dadicoach.com/chat/4deBb7XRBt89SBrW";
+      // Add timestamp to URL to force reload and avoid cache
+      iframe.src = `http://dify.dadicoach.com/chat/4deBb7XRBt89SBrW?t=${Date.now()}`;
     }
   };
 
@@ -89,7 +117,7 @@ const Business = () => {
               >
                 <ExternalLink className="h-4 w-4" />
               </button>
-              {iframeError && (
+              {(iframeLoading || iframeError) && (
                 <button 
                   onClick={refreshIframe}
                   className="text-gray-600 hover:text-primary flex items-center gap-1"
@@ -107,15 +135,23 @@ const Business = () => {
             </div>
           </div>
           {iframeLoading && (
-            <div className="flex items-center justify-center p-10 bg-gray-50" style={{ minHeight: '700px' }}>
-              <div className="text-center">
-                <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-primary mx-auto mb-4"></div>
-                <p className="text-gray-600">Loading chatbot...</p>
+            <div className="flex items-center justify-center bg-gray-50" style={{ minHeight: '650px' }}>
+              <div className="text-center w-full max-w-md p-8">
+                <div className="relative h-12 w-12 mx-auto mb-4">
+                  <Skeleton className="h-12 w-12 rounded-full" />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="h-8 w-8 rounded-full border-t-2 border-primary animate-spin"></div>
+                  </div>
+                </div>
+                <p className="text-gray-600 mb-4">Loading chatbot...</p>
+                <p className="text-gray-500 text-sm">
+                  This may take a moment. If loading continues for too long, try using the "Open in new tab" button.
+                </p>
               </div>
             </div>
           )}
           {iframeError && (
-            <div className="flex items-center justify-center p-10 bg-gray-50" style={{ minHeight: '700px' }}>
+            <div className="flex items-center justify-center p-10 bg-gray-50" style={{ minHeight: '650px' }}>
               <div className="text-center max-w-md">
                 <div className="text-red-500 mb-4">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -124,9 +160,16 @@ const Business = () => {
                 </div>
                 <h3 className="text-lg font-medium text-gray-900 mb-2">Unable to load the chatbot</h3>
                 <p className="text-gray-600 mb-4">
-                  The external chatbot couldn't be loaded in this preview environment due to security restrictions.
+                  The external chatbot couldn't be loaded. This may be due to security restrictions in the preview environment.
                 </p>
                 <div className="flex flex-col gap-2">
+                  <button 
+                    onClick={refreshIframe}
+                    className="px-4 py-2 bg-gray-200 text-gray-800 rounded-md hover:bg-gray-300 inline-flex items-center justify-center gap-2 mb-2"
+                  >
+                    <RefreshCw className="h-4 w-4" />
+                    Try again
+                  </button>
                   <button 
                     onClick={() => openInNewTab("http://dify.dadicoach.com/chat/4deBb7XRBt89SBrW")}
                     className="px-4 py-2 bg-primary text-white rounded-md hover:bg-primary/90 inline-flex items-center justify-center gap-2"
@@ -140,7 +183,7 @@ const Business = () => {
           )}
           <iframe
             id="externalChatbot"
-            src="http://dify.dadicoach.com/chat/4deBb7XRBt89SBrW"
+            src={`https://dify.dadicoach.com/chat/4deBb7XRBt89SBrW?t=${Date.now()}`}
             style={{ 
               width: '100%', 
               height: '700px', 
