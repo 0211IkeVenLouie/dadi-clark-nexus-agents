@@ -22,8 +22,19 @@ const Business = () => {
     setIframeError(true);
   };
 
-  const openInNewTab = (url) => {
+  const openInNewTab = (url: string) => {
     window.open(url, '_blank', 'noopener,noreferrer');
+  };
+
+  // Fixed function: Adding proper type casting for the iframe element
+  const refreshIframe = () => {
+    setIframeLoading(true);
+    setIframeError(false);
+    // Get the iframe and properly cast it to HTMLIFrameElement
+    const iframe = document.getElementById('externalChatbot') as HTMLIFrameElement;
+    if (iframe) {
+      iframe.src = "http://dify.dadicoach.com/chat/4deBb7XRBt89SBrW";
+    }
   };
 
   return (
@@ -80,15 +91,7 @@ const Business = () => {
               </button>
               {iframeError && (
                 <button 
-                  onClick={() => {
-                    setIframeLoading(true);
-                    setIframeError(false);
-                    // Force iframe refresh
-                    const iframe = document.getElementById('externalChatbot');
-                    if (iframe) {
-                      iframe.src = "http://dify.dadicoach.com/chat/4deBb7XRBt89SBrW";
-                    }
-                  }}
+                  onClick={refreshIframe}
                   className="text-gray-600 hover:text-primary flex items-center gap-1"
                   title="Try to reload"
                 >
