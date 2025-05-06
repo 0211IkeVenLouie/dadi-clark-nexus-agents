@@ -1,3 +1,4 @@
+
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
@@ -15,6 +16,8 @@ const Business = () => {
   const [iframeLoading, setIframeLoading] = useState(true);
   const [iframeError, setIframeError] = useState(false);
   const { toast } = useToast();
+
+  const CHATBOT_URL = "http://dify.dadicoach.com/chat/4deBb7XRBt89SBrW";
 
   const handleIframeLoad = () => {
     setIframeLoading(false);
@@ -69,7 +72,7 @@ const Business = () => {
     const iframe = document.getElementById('externalChatbot') as HTMLIFrameElement;
     if (iframe) {
       // Add timestamp to URL to force reload and avoid cache
-      iframe.src = `https://dify.dadicoach.com/chat/4deBb7XRBt89SBrW?t=${Date.now()}`;
+      iframe.src = `${CHATBOT_URL}?t=${Date.now()}`;
     }
   };
 
@@ -112,12 +115,22 @@ const Business = () => {
               </div>
               <CardTitle className="text-gray-800">External Dify Chatbot</CardTitle>
             </div>
-            <Button 
-              onClick={handleExternalLinkClick}
-              className="bg-primary text-white hover:bg-primary/90"
-            >
-              Click here to open chatbot
-            </Button>
+            <div className="flex gap-2">
+              <Button 
+                onClick={handleExternalLinkClick}
+                className="bg-primary text-white hover:bg-primary/90"
+              >
+                Click here to open chatbot
+              </Button>
+              <Button 
+                onClick={() => openInNewTab(CHATBOT_URL)}
+                variant="outline"
+                className="flex items-center gap-1"
+              >
+                <ExternalLink className="h-4 w-4" />
+                Open in new tab
+              </Button>
+            </div>
           </CardHeader>
         </Card>
       )}
@@ -129,7 +142,7 @@ const Business = () => {
             <h3 className="font-medium text-gray-800">External Dify Chatbot</h3>
             <div className="flex items-center gap-2">
               <button 
-                onClick={() => openInNewTab("https://dify.dadicoach.com/chat/4deBb7XRBt89SBrW")}
+                onClick={() => openInNewTab(CHATBOT_URL)}
                 className="text-gray-600 hover:text-primary flex items-center gap-1"
                 title="Open in new tab"
               >
@@ -192,7 +205,7 @@ const Business = () => {
                     Try again
                   </button>
                   <button 
-                    onClick={() => openInNewTab("https://dify.dadicoach.com/chat/4deBb7XRBt89SBrW")}
+                    onClick={() => openInNewTab(CHATBOT_URL)}
                     className="px-4 py-2 bg-primary text-white rounded-md hover:bg-primary/90 inline-flex items-center justify-center gap-2"
                   >
                     <ExternalLink className="h-4 w-4" />
@@ -204,7 +217,7 @@ const Business = () => {
           )}
           <iframe
             id="externalChatbot"
-            src={`https://dify.dadicoach.com/chat/4deBb7XRBt89SBrW?t=${Date.now()}`}
+            src={`${CHATBOT_URL}?t=${Date.now()}`}
             style={{ 
               width: '100%', 
               height: '700px', 
