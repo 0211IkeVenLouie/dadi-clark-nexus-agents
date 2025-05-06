@@ -1,4 +1,3 @@
-
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
@@ -6,11 +5,13 @@ import { Home, ExternalLink, RefreshCw } from "lucide-react";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useToast } from "@/hooks/use-toast";
+import { Button } from "@/components/ui/button";
 
 const Business = () => {
   const [showAgent1, setShowAgent1] = useState(false);
   const [showAgent2, setShowAgent2] = useState(false);
   const [showExternalAgent, setShowExternalAgent] = useState(false);
+  const [showExternalLink, setShowExternalLink] = useState(true);
   const [iframeLoading, setIframeLoading] = useState(true);
   const [iframeError, setIframeError] = useState(false);
   const { toast } = useToast();
@@ -32,6 +33,13 @@ const Business = () => {
 
   const openInNewTab = (url: string) => {
     window.open(url, '_blank', 'noopener,noreferrer');
+  };
+
+  const handleExternalLinkClick = () => {
+    setShowExternalLink(false);
+    setShowExternalAgent(true);
+    setIframeLoading(true);
+    setIframeError(false);
   };
 
   // When showing the external agent, set a timeout to auto-trigger error state
@@ -61,7 +69,7 @@ const Business = () => {
     const iframe = document.getElementById('externalChatbot') as HTMLIFrameElement;
     if (iframe) {
       // Add timestamp to URL to force reload and avoid cache
-      iframe.src = `http://dify.dadicoach.com/chat/4deBb7XRBt89SBrW?t=${Date.now()}`;
+      iframe.src = `https://dify.dadicoach.com/chat/4deBb7XRBt89SBrW?t=${Date.now()}`;
     }
   };
 
@@ -88,30 +96,40 @@ const Business = () => {
         </p>
       </div>
 
-      {/* External Dify Chatbot */}
-      {!showExternalAgent ? (
+      {/* External Dify Chatbot Link */}
+      {showExternalLink && (
         <Card 
           className="cursor-pointer hover:shadow-lg transition-all mb-6 border border-gray-100 transform hover:-translate-y-1"
-          onClick={() => setShowExternalAgent(true)}
         >
-          <CardHeader className="flex flex-row items-center gap-4">
-            <div className="bg-primary/10 p-2 rounded-full">
-              <img
-                src="/lovable-uploads/8396e346-a650-4c23-8183-77878816d11b.png"
-                alt="Dadi Coach"
-                className="h-12"
-              />
+          <CardHeader className="flex flex-row items-center justify-between">
+            <div className="flex items-center gap-4">
+              <div className="bg-primary/10 p-2 rounded-full">
+                <img
+                  src="/lovable-uploads/8396e346-a650-4c23-8183-77878816d11b.png"
+                  alt="Dadi Coach"
+                  className="h-12"
+                />
+              </div>
+              <CardTitle className="text-gray-800">External Dify Chatbot</CardTitle>
             </div>
-            <CardTitle className="text-gray-800">External Dify Chatbot</CardTitle>
+            <Button 
+              onClick={handleExternalLinkClick}
+              className="bg-primary text-white hover:bg-primary/90"
+            >
+              Click here to open chatbot
+            </Button>
           </CardHeader>
         </Card>
-      ) : (
+      )}
+
+      {/* External Dify Chatbot */}
+      {showExternalAgent && (
         <div className="rounded-lg overflow-hidden shadow-md mb-6 border border-gray-200" style={{ minHeight: '700px' }}>
           <div className="bg-primary/10 p-3 flex justify-between items-center">
             <h3 className="font-medium text-gray-800">External Dify Chatbot</h3>
             <div className="flex items-center gap-2">
               <button 
-                onClick={() => openInNewTab("http://dify.dadicoach.com/chat/4deBb7XRBt89SBrW")}
+                onClick={() => openInNewTab("https://dify.dadicoach.com/chat/4deBb7XRBt89SBrW")}
                 className="text-gray-600 hover:text-primary flex items-center gap-1"
                 title="Open in new tab"
               >
@@ -127,7 +145,10 @@ const Business = () => {
                 </button>
               )}
               <button 
-                onClick={() => setShowExternalAgent(false)}
+                onClick={() => {
+                  setShowExternalAgent(false);
+                  setShowExternalLink(true);
+                }}
                 className="text-gray-600 hover:text-primary"
               >
                 Close
@@ -171,7 +192,7 @@ const Business = () => {
                     Try again
                   </button>
                   <button 
-                    onClick={() => openInNewTab("http://dify.dadicoach.com/chat/4deBb7XRBt89SBrW")}
+                    onClick={() => openInNewTab("https://dify.dadicoach.com/chat/4deBb7XRBt89SBrW")}
                     className="px-4 py-2 bg-primary text-white rounded-md hover:bg-primary/90 inline-flex items-center justify-center gap-2"
                   >
                     <ExternalLink className="h-4 w-4" />
