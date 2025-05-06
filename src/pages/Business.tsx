@@ -114,7 +114,7 @@ const Business = () => {
               </div>
               <div>
                 <CardTitle className="text-gray-800">External Dify Chatbot</CardTitle>
-                <p className="text-gray-600 mt-1">You can test chatbot by clicking "Open in new tab".</p>
+                <p className="text-gray-600 mt-1">You can test this AI Agent by clicking "Open in new tab".</p>
               </div>
             </div>
             <Button 
