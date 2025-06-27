@@ -123,13 +123,13 @@ const Support = () => {
                 className="h-12"
               />
             </div>
-            <CardTitle className="text-gray-800">AI Dadi Analyst</CardTitle>
+            <CardTitle className="text-gray-800">M.E.D.I.A. (Multimodal Engine for Dynamic Image & Animation)</CardTitle>
           </CardHeader>
         </Card>
       ) : (
         <div className="rounded-lg overflow-hidden shadow-md mb-6 border border-gray-200" style={{ minHeight: '700px' }}>
           <div className="bg-primary/10 p-3 flex justify-between items-center">
-            <h3 className="font-medium text-gray-800">AI Dadi Analyst</h3>
+            <h3 className="font-medium text-gray-800">M.E.D.I.A. (Multimodal Engine for Dynamic Image & Animation)</h3>
             <button 
               onClick={() => setShowAgent1(false)}
               className="text-gray-600 hover:text-primary"
@@ -138,7 +138,7 @@ const Support = () => {
             </button>
           </div>
           <iframe
-            src="https://udify.app/chat/gKWiq22DtCoJ3g7u"
+            src="https://dify.dadicoach.com/chatbot/B6zcBczKpcAnG6eH"
             style={{ width: '100%', height: '100%', minHeight: '700px' }}
             frameBorder="0"
             allow="microphone"
@@ -160,13 +160,13 @@ const Support = () => {
                 className="h-12"
               />
             </div>
-            <CardTitle className="text-gray-800">AI Dadi Analyst</CardTitle>
+            <CardTitle className="text-gray-800">PPT Generation (Test)</CardTitle>
           </CardHeader>
         </Card>
       ) : (
         <div className="rounded-lg overflow-hidden shadow-md mb-6 border border-gray-200" style={{ minHeight: '700px' }}>
           <div className="bg-primary/10 p-3 flex justify-between items-center">
-            <h3 className="font-medium text-gray-800">AI Dadi Analyst</h3>
+            <h3 className="font-medium text-gray-800">PPT Generation (Test)</h3>
             <button 
               onClick={() => setShowAgent1(false)}
               className="text-gray-600 hover:text-primary"
@@ -175,7 +175,7 @@ const Support = () => {
             </button>
           </div>
           <iframe
-            src="https://udify.app/chat/gKWiq22DtCoJ3g7u"
+            src="https://dify.dadicoach.com/chatbot/B6zcBczKpcAnG6eH"
             style={{ width: '100%', height: '100%', minHeight: '700px' }}
             frameBorder="0"
             allow="microphone"
