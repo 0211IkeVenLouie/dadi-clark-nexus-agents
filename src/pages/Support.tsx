@@ -10,6 +10,7 @@ const Support = () => {
   const [showAgent3, setShowAgent3] = useState(false);
   const [showAgent4, setShowAgent4] = useState(false);
   const [showAgent5, setShowAgent5] = useState(false);
+  const [showAgent6, setShowAgent6] = useState(false);
 
 
   return (
