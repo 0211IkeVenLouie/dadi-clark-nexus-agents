@@ -121,13 +121,13 @@ const Business = () => {
                 className="h-12"
               />
             </div>
-            <CardTitle className="text-gray-800">Customer Service AI (Dadi ABCmouse 212 Program)</CardTitle>
+            <CardTitle className="text-gray-800">Customer Service AI (Dadi 212 In-School Program)</CardTitle>
           </CardHeader>
         </Card>
       ) : (
         <div className="rounded-lg overflow-hidden shadow-md mb-6 border border-gray-200" style={{ minHeight: '700px' }}>
           <div className="bg-primary/10 p-3 flex justify-between items-center">
-            <h3 className="font-medium text-gray-800">Customer Service AI (Dadi ABCmouse 212 Program)</h3>
+            <h3 className="font-medium text-gray-800">Customer Service AI (Dadi 212 In-School Program)</h3>
             <button 
               onClick={() => setShowAgent3(false)}
               className="text-gray-600 hover:text-primary"
