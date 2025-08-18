@@ -45,13 +45,13 @@ const Academy = () => {
                 className="h-12"
               />
             </div>
-            <CardTitle className="text-gray-800">AI Agent Soon</CardTitle>
+            <CardTitle className="text-gray-800">CUSTOMER SERVICE AI – Intelligent Outreach & Engagement</CardTitle>
           </CardHeader>
         </Card>
       ) : (
         <div className="rounded-lg overflow-hidden shadow-md mb-6 border border-gray-200" style={{ minHeight: '700px' }}>
           <div className="bg-primary/10 p-3 flex justify-between items-center">
-            <h3 className="font-medium text-gray-800">AI Agent Soon</h3>
+            <h3 className="font-medium text-gray-800">CUSTOMER SERVICE AI – Intelligent Outreach & Engagement</h3>
             <button 
               onClick={() => setShowAgent1(false)}
               className="text-gray-600 hover:text-primary"
@@ -60,7 +60,7 @@ const Academy = () => {
             </button>
           </div>
           <iframe
-            src=""
+            src="https://dify.dadicoach.com/chatbot/VACk7X9AlvpiMQrw"
             style={{ width: '100%', height: '100%', minHeight: '700px' }}
             frameBorder="0"
             allow="microphone"
