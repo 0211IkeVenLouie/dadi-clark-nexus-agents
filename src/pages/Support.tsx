@@ -253,7 +253,7 @@ const Support = () => {
             </button>
           </div>
           <iframe
-            src="https://dify.dadicoach.com/chatbot/Ptpnx40S4AG7rAib"
+            src="https://dify.dadicoach.com/chat/3vggWJljFZyEUrui"
             style={{ width: '100%', height: '100%', minHeight: '700px' }}
             frameBorder="0"
             allow="microphone"
