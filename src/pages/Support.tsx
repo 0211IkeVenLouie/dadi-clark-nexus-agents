@@ -9,6 +9,8 @@ const Support = () => {
   const [showAgent2, setShowAgent2] = useState(false);
   const [showAgent3, setShowAgent3] = useState(false);
   const [showAgent4, setShowAgent4] = useState(false);
+  const [showAgent5, setShowAgent5] = useState(false);
+
 
   return (
     <div className="p-8 bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
@@ -113,7 +115,7 @@ const Support = () => {
       {!showAgent3 ? (
         <Card 
           className="cursor-pointer hover:shadow-lg transition-all mb-6 border border-gray-100 transform hover:-translate-y-1"
-          onClick={() => setShowAgent1(true)}
+          onClick={() => setShowAgent3(true)}
         >
           <CardHeader className="flex flex-row items-center gap-4">
             <div className="bg-primary/10 p-2 rounded-full">
@@ -131,7 +133,7 @@ const Support = () => {
           <div className="bg-primary/10 p-3 flex justify-between items-center">
             <h3 className="font-medium text-gray-800">M.E.D.I.A. (Multimodal Engine for Dynamic Image & Animation)</h3>
             <button 
-              onClick={() => setShowAgent1(false)}
+              onClick={() => setShowAgent3(false)}
               className="text-gray-600 hover:text-primary"
             >
               Close
@@ -150,7 +152,7 @@ const Support = () => {
       {!showAgent4 ? (
         <Card 
           className="cursor-pointer hover:shadow-lg transition-all mb-6 border border-gray-100 transform hover:-translate-y-1"
-          onClick={() => setShowAgent1(true)}
+          onClick={() => setShowAgent4(true)}
         >
           <CardHeader className="flex flex-row items-center gap-4">
             <div className="bg-primary/10 p-2 rounded-full">
@@ -168,7 +170,7 @@ const Support = () => {
           <div className="bg-primary/10 p-3 flex justify-between items-center">
             <h3 className="font-medium text-gray-800">PPT Generation (Test)</h3>
             <button 
-              onClick={() => setShowAgent1(false)}
+              onClick={() => setShowAgent4(false)}
               className="text-gray-600 hover:text-primary"
             >
               Close
@@ -176,6 +178,44 @@ const Support = () => {
           </div>
           <iframe
             src="https://dify.dadicoach.com/chatbot/B6zcBczKpcAnG6eH"
+            style={{ width: '100%', height: '100%', minHeight: '700px' }}
+            frameBorder="0"
+            allow="microphone"
+            title="Internal Coordination Assistant"
+          />
+        </div>
+      )}
+
+      {/* Agent 5 */}
+      {!showAgent5 ? (
+        <Card 
+          className="cursor-pointer hover:shadow-lg transition-all mb-6 border border-gray-100 transform hover:-translate-y-1"
+          onClick={() => setShowAgent5(true)}
+        >
+          <CardHeader className="flex flex-row items-center gap-4">
+            <div className="bg-primary/10 p-2 rounded-full">
+              <img
+                src="/lovable-uploads/8396e346-a650-4c23-8183-77878816d11b.png"
+                alt="Dadi Coach"
+                className="h-12"
+              />
+            </div>
+            <CardTitle className="text-gray-800">Personal Mentor AI</CardTitle>
+          </CardHeader>
+        </Card>
+      ) : (
+        <div className="rounded-lg overflow-hidden shadow-md mb-6 border border-gray-200" style={{ minHeight: '700px' }}>
+          <div className="bg-primary/10 p-3 flex justify-between items-center">
+            <h3 className="font-medium text-gray-800">Personal Mentor AI</h3>
+            <button 
+              onClick={() => setShowAgent5(false)}
+              className="text-gray-600 hover:text-primary"
+            >
+              Close
+            </button>
+          </div>
+          <iframe
+            src="https://dify.dadicoach.com/chatbot/Ptpnx40S4AG7rAib"
             style={{ width: '100%', height: '100%', minHeight: '700px' }}
             frameBorder="0"
             allow="microphone"
