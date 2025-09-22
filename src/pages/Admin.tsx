@@ -112,7 +112,7 @@ const Admin = () => {
       {!showAgent3 ? (
         <Card 
           className="cursor-pointer hover:shadow-lg transition-all mb-6 border border-gray-100 transform hover:-translate-y-1"
-          onClick={() => setShowAgent1(true)}
+          onClick={() => setShowAgent3(true)}
         >
           <CardHeader className="flex flex-row items-center gap-4">
             <div className="bg-primary/10 p-2 rounded-full">
@@ -130,7 +130,7 @@ const Admin = () => {
           <div className="bg-primary/10 p-3 flex justify-between items-center">
             <h3 className="font-medium text-gray-800">Lingua Pro</h3>
             <button 
-              onClick={() => setShowAgent1(false)}
+              onClick={() => setShowAgent3(false)}
               className="text-gray-600 hover:text-primary"
             >
               Close
