@@ -137,7 +137,7 @@ const Admin = () => {
             </button>
           </div>
           <iframe
-            src="https://dify.dadicoach.com/chat/3LNCeqfy5YtltWKp"
+            src="https://dify.dadicoach.com/chatbot/3LNCeqfy5YtltWKp"
             style={{ width: '100%', height: '100%', minHeight: '700px' }}
             frameBorder="0"
             allow="microphone"
