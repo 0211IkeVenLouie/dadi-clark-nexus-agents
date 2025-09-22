@@ -7,6 +7,7 @@ import { Home } from "lucide-react";
 const Admin = () => {
   const [showAgent1, setShowAgent1] = useState(false);
   const [showAgent2, setShowAgent2] = useState(false);
+  const [showAgent3, setShowAgent3] = useState(false);
 
   return (
     <div className="p-8 bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
@@ -106,6 +107,45 @@ const Admin = () => {
           />
         </div>
       )}
+
+      {/* Agent 3 */}
+      {!showAgent3 ? (
+        <Card 
+          className="cursor-pointer hover:shadow-lg transition-all mb-6 border border-gray-100 transform hover:-translate-y-1"
+          onClick={() => setShowAgent1(true)}
+        >
+          <CardHeader className="flex flex-row items-center gap-4">
+            <div className="bg-primary/10 p-2 rounded-full">
+              <img
+                src="/lovable-uploads/8396e346-a650-4c23-8183-77878816d11b.png"
+                alt="Admin Agent 1"
+                className="h-12"
+              />
+            </div>
+            <CardTitle className="text-gray-800">Lingua Pro</CardTitle>
+          </CardHeader>
+        </Card>
+      ) : (
+        <div className="rounded-lg overflow-hidden shadow-md mb-6 border border-gray-200" style={{ minHeight: '700px' }}>
+          <div className="bg-primary/10 p-3 flex justify-between items-center">
+            <h3 className="font-medium text-gray-800">Lingua Pro</h3>
+            <button 
+              onClick={() => setShowAgent1(false)}
+              className="text-gray-600 hover:text-primary"
+            >
+              Close
+            </button>
+          </div>
+          <iframe
+            src="https://dify.dadicoach.com/chat/3LNCeqfy5YtltWKp"
+            style={{ width: '100%', height: '100%', minHeight: '700px' }}
+            frameBorder="0"
+            allow="microphone"
+            title="Administrative Workflow Optimizer"
+          />
+        </div>
+      )}
+      
     </div>
   );
 };
